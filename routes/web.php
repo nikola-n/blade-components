@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/comments/{comment}/edit', function (Comment $comment) {
     return view('comments.edit', ['comment' => $comment]);
@@ -34,4 +34,20 @@ Route::delete('/comments/{comment}', function (Comment $comment) {
     $comment->delete();
 
     return redirect('/');
+});
+
+Route::get('/about', function () {
+    return view('welcome');
+})->name('about');
+
+Route::get('/testimonials', function () {
+    return view('welcome');
+})->name('testimonials');
+
+Route::get('/contact', function () {
+    return view('welcome');
+})->name('contact');
+
+Route::get('/contact-team', function () {
+    return view('welcome');
 });
