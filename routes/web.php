@@ -51,3 +51,15 @@ Route::get('/contact', function () {
 Route::get('/contact-team', function () {
     return view('welcome');
 });
+
+Route::get('/posts/create', function () {
+    return view('posts.create');
+});
+
+Route::post('/posts', function () {
+    request()->validate([
+        'title' => 'required',
+        'g-recaptcha-response' => ['required', new \App\Rules\Recaptcha()]
+    ]);
+    dd('Validation passed and we are ready to create the post.');
+});

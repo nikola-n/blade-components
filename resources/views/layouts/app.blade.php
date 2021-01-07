@@ -394,7 +394,16 @@
         }
     </style>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
-    {{ $head ?: '' }}
+    {{ $head ?? '' }}
+
+{{-- Recaptcha--}}
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function onSubmit(token) {
+            document.querySelector("form").submit();
+        }
+    </script>
+
 </head>
 <body class="antialiased">
 
