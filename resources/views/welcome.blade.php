@@ -29,5 +29,42 @@
                 <x-dropdown-link href="/">Three</x-dropdown-link>
             </x-dropdown>
         </div>
+
+        {{--Simple tabs--}}
+
+        <div x-data="{ active: 'First' }">
+            <div>
+                <button @click="active = 'First'">First</button>
+                <button @click="active = 'Second'">Second</button>
+                <button @click="active = 'Third'">Third</button>
+            </div>
+
+            <div>
+                <div x-show="active === 'First'">First content goes here.</div>
+                <div x-show="active === 'Second'">Second content goes here.</div>
+                <div x-show="active === 'Third'">Third content goes here.</div>
+            </div>
+        </div>
+
+        <hr>
+        <br>
+        {{--Tab component--}}
+
+        <x-tabs active="Second">
+            <x-tab name="First">
+                First content goes here.
+            </x-tab>
+
+            <x-tab name="Second">
+                Second content goes here.
+            </x-tab>
+
+            <x-tab name="Third">
+                Third content goes here.
+            </x-tab>
+        </x-tabs>
+
     </x-section>
 </x-app-layout>
+
+
